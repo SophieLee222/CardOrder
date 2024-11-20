@@ -59,7 +59,7 @@ public class FormTest {
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79604578591");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button")).click();
-        String text = driver.findElement(By.cssSelector(".input_theme_alfa-on-white.input_invalid .input__sub")).getText().trim();
+        String text = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
         assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text);
     }
 
@@ -71,7 +71,7 @@ public class FormTest {
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("78591");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button")).click();
-        String text = driver.findElement(By.cssSelector(".input_theme_alfa-on-white.input_invalid .input__sub")).getText().trim();
+        String text = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
         assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", text);
     }
 
@@ -83,7 +83,7 @@ public class FormTest {
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79604578591");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button")).click();
-        String text = driver.findElement(By.cssSelector(".input_theme_alfa-on-white.input_invalid .input__sub")).getText().trim();
+        String text = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText().trim();
         assertEquals("Поле обязательно для заполнения", text);
     }
 
@@ -95,7 +95,7 @@ public class FormTest {
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
         driver.findElement(By.cssSelector("button")).click();
-        String text = driver.findElement(By.cssSelector(".input_theme_alfa-on-white.input_invalid .input__sub")).getText().trim();
+        String text = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
         assertEquals("Поле обязательно для заполнения", text);
     }
 
@@ -106,7 +106,7 @@ public class FormTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Гриша");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79604578591");
         driver.findElement(By.cssSelector("button")).click();
-        String rgbaColor = driver.findElement(By.cssSelector(".checkbox.input_invalid")).getCssValue("color");
+        String rgbaColor = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid")).getCssValue("color");
         String hexColor = Color.fromString(rgbaColor).asHex();
         assertEquals("#ff5c5c", hexColor);
     }
